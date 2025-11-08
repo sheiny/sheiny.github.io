@@ -1,405 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sheiny's Resume</title>
-    <meta name="description" content="Sheiny Fabre Almeida's Resume">
-    <meta name="author" content="Sheiny Fabre Almeida @">
+    <style>
+/* ---------- GENERAL ---------- */
+@page {
+  margin: 0.7in;
+}
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #222;
+    margin: 0 auto;
+    max-width: 1000px;
+    line-height: 1.4;
+    font-size: 11.3pt;
+  }
+  h1, h2, h3 {
+    margin: 0;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 22pt;
+    color: #0a3d62;
+  }
+  h2 {
+    font-size: 12.5pt;
+    color: #1a5276;
+    border-bottom: 1px solid #ccc;
+    margin-top: 16px;
+    padding-bottom: 2px;
+  }
+  p, ul {
+    margin: 4px 0;
+  }
+  ul {
+    padding-left: 18px;
+  }
+  .skills ul {
+    columns: 2;          /* split into two columns */
+    -webkit-columns: 2;  /* for Safari */
+    -moz-columns: 2;     /* for Firefox */
+    column-gap: 20px;    /* space between columns */
+  }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  /* ---------- HEADER ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #1a5276;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    page-break-after: avoid; /* <-- prevents split after header */
+  }
+  header img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid #1a5276;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  .header-info {
+    flex: 1;
+  }
+  .contact {
+    font-size: 10pt;
+    margin-top: 6px;
+    color: #444;
+  }
+  .contact a {
+    color: #1a5276;
+    text-decoration: none;
+  }
 
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/skeleton.css">
-    <link rel="stylesheet" href="/static/css/layout.css">
-    <link rel="stylesheet" href="/static/fonts/font-awesome.css">
-    <link rel="stylesheet" href="/static/css/academicons.css" />
+  /* ---------- LAYOUT ---------- */
+  main {
+    display: grid;
+    grid-template-columns: 66% 32%;
+    column-gap: 2%;
+    page-break-before: avoid; /* <-- ensures main content starts with header */
+  }
+  .left, .right {
+    vertical-align: top;
+  }
+
+  .job {
+    margin-bottom: 8px;
+  }
+  .job-title {
+    font-weight: bold;
+  }
+  .date {
+    font-style: italic;
+    color: #555;
+    font-size: 10pt;
+  }
+
+  /* ---------- PRINT OPTIMIZATION ---------- */
+  @media print {
+    header, main {
+      page-break-inside: avoid;
+    }
+    body {
+      color: #000;
+      font-size: 10.5pt;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    h2 {
+      border-bottom: 1px solid #999;
+    }
+    header {
+      border-bottom: 1.5px solid #000;
+    }
+  }
+    </style>
   </head>
-
   <body>
-    <div class="container">
-      <header class="three columns">
-        <img src="/static/img/profile.jpg" class="me">
-        <h1>Sheiny Fabre Almeida</h1>
-        <article>sheiny.fabre at gmail</article>
-        <p> <u><a href="https://github.com/sheiny" target="blank"><i><img src="/static/img/github_icon.png" height="20" width="20" /></i> Github</a> </u></p>
-        <p> <u><a href="https://gitlab.com/sheiny" target="blank"><i><img src="/static/img/gitlab_icon.png" height="20" width="20" /></i> GitLab</a> </u></p>
-        <p> <u><a href="https://www.linkedin.com/in/sheiny-almeida-b974a8171/" target="blank"><i><img src="/static/img/linkedin_icon.svg" height="20" width="20" /></i> Linkedin</a> </u></p>
-        <p> <u><a href="http://lattes.cnpq.br/1191952102855218" target="blank"><i><img src="/static/img/lattes_icon.gif" height="20" width="20" /></i> Lattes</a> </u></p>
-        <p> Last update on October 7, 2025</p>
-      </header>
 
-      <div class="thirteen columns clearfix">
-        <section class="thirteen columns">
-          <h1>About</h1>
-          <article>
-            A person who loves programming and understanding how things work.
-            I have been working with electronic design automation (EDA) tools since 2015, and I am passionate about developing high-performance software to solve complex problems in the field of EDA.
-            Enthusiastic about continuously learning new technologies and applying them to drive innovation and deliver results.
-          </article>
+    <header>
+      <img src="static/img/profile.jpg" alt="Profile Picture">
+      <div class="header-info">
+        <h1>Sheiny Fabre Almeida, Ph.D.</h1>
+        <div class="contact">
+          Location: Brazil<br>
+          Email: sheiny.fabre@gmail.com<br>
+          Linkedin: <a href="https://www.linkedin.com/in/sheiny-fabre-almeida-b974a8171/">linkedin.com/in/sheiny-fabre-almeida-b974a8171</a> <br>
+          Github: <a href="https://github.com/sheiny">github.com/sheiny</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <div class="left">
+
+        <section>
+          <h2>SUMMARY</h2>
+          <p>
+          Innovative <strong>Lead Software Engineer</strong> with a <strong>Ph.D. in Computer Science</strong> and 3+ years of experience developing scalable solutions in the EDA (Electronic Design Automation) industry.
+          Expert in software development, electronic design automation, and high-performance computing, with a strong record of bridging research and production.
+          Enthusiastic about continuously learning new technologies and applying them to drive innovation and deliver results.
+          </p>
         </section>
 
-        <section class="thirteen columns">
-          <h1>Current Employment</h1>
-          <article>
-            <header>
-              <h1>Lead Software Engineer @ Cadence Design Systems Brasil</h1>
-              <p>As member of Clock Concurrent Optimization (CCOpt) team</p>
-              <span><address>Belo Horizonte, Minas Gerais, Brazil</address><time>2024/10-now</time></span>
-            </header>
-          </article>
+        <section>
+          <h2>PROFESSIONAL EXPERIENCE</h2>
+          <div class="job">
+            <div class="job-title">Lead Software Engineer — Cadence Design Systems Brazil</div>
+            <div class="date">Oct 2024 – <strong>Now</strong></div>
+            <p>
+            Lead software engineer in CCOpt (Concurrent Clock Optimization) team, Brazil — Belo Horizonte.
+            </p>
+          </div>
 
+          <div class="job">
+            <div class="job-title">Software Engineer Intern — Cadence Design Systems</div>
+            <div class="date"><strong>(2 years)</strong> Apr 2021 – Dec 2021 &amp; Jan 2023 – Jul 2024</div>
+            <p>
+            Worked as research and development software engineer intern in CCOpt (Concurrent Clock Optimization) team, Austin TX (remote).
+            Delivered key QoR (Quality of Results) for relevant customers.
+            My work contributions resulted in to two U.S. patents under Cadence's ownership.
+            </p>
+          </div>
+
+        <section>
+          <h2>EDUCATION</h2>
+          <p><strong>Ph.D., Computer Science — Federal University of Santa Catarina (UFSC), Brazil</strong><br>
+          <em>(Feb 2025) Thesis:</em> <a href="https://repositorio.ufsc.br/bitstream/handle/123456789/264897/PGCC1295-T.pdf">A Hyper-Image-Based Initial DRV Predictor Combining Placement and Global Routing Data</a><br>
+          </p>
+          <p><strong>(2017) B.Sc. and (2019) M.Sc., Computer Science — UFSC</strong></p>
         </section>
 
-        <section class="thirteen columns">
-          <h1>Employment History</h1>
-
-          <article>
-            <header>
-              <h1>Ph.D. in Computer Science @ <a href="http://eclab.paginas.ufsc.br/" target="blank">Embedded Computing Lab - UFSC</a></h1>
-              <span><address>Florianopolis, BR</address><time>2019 to 2025</time></span>
-            </header>
-            <p> In my thesis, I developed a learning model to predict early Design Rule Violations (DRVs) using the open-source EDA tool <u><a href="https://theopenroadproject.org/" target="blank">OpenROAD</a></u> and the circuits from <u><a href="https://opencores.org/" target="blank">OpenCores</a></u> Link for my fork: <u><a href="https://github.com/sheiny/OpenROAD2" target="blank">GithubRepo</a></u>.</p>
-          </article>
-
-          <article>
-            <header>
-              <h1>Software Engineer Intern @ Cadence Design Systems</h1>
-              <p>As member of Clock Concurrent Optimization (CCOpt) team</p>
-              <span><address>Austin, Texas, United States (Remote)</address><time>2023/01-2024/07</time></span>
-            </header>
-          </article>
-
-          <article>
-            <header>
-              <h1>Software Engineer Intern @ Cadence Design Systems</h1>
-              <p>As member of Clock Concurrent Optimization (CCOpt) team</p>
-              <span><address>Austin, Texas, United States (Remote)</address><time>2021/04-2021/12</time></span>
-            </header>
-          </article>
-
-          <article>
-            <header>
-              <h1>M.Sc. Student in Computer Science @ <a href="http://eclab.paginas.ufsc.br/" target="blank">Embedded Computing Lab - UFSC</a></h1>
-              <span><address>Florianopolis, BR</address><time>2017-2019</time></span>
-            </header>
-          </article>
-
-          <article>
-            <header>
-              <h1>Research Assistant @ <a href="http://eclab.paginas.ufsc.br/" target="blank">Embedded Computing Lab - UFSC</a></h1>
-              <span><address>Florianopolis, BR</address><time>2015-2016</time></span>
-            </header>
-          </article>
-
-          <article>
-            <header>
-              <h1>BSc in Computer Science @ <a href="http://eclab.paginas.ufsc.br/" target="blank">Embedded Computing Lab - UFSC</a></h1>
-              <span><address>Florianopolis, BR</address><time>2011-2016</time></span>
-            </header>
-          </article>
+        <section class="skills">
+          <h2>TECHNICAL SKILLS &amp; COMPETENCIES</h2>
+          <ul>
+            <li>Software Architecture</li>
+            <li>Machine Learning &amp; AI</li>
+            <li>Multithreading</li>
+            <li>Object Oriented Design</li>
+            <li>Test Driven Development</li>
+            <li>C++, Python, TCL, Scripting</li>
+            <li>Optimization Methods</li>
+            <li>Debug (GDB)</li>
+            <li>TensorFlow</li>
+            <li>Git, Perforce</li>
+          </ul>
         </section>
 
-        <section class="thirteen columns">
-          <h1>Skills</h1>
-          List in alphabetical order:
-          <article>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Arch Linux</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>C++</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>CMake</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>CUDA</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Data Oriented Design</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-                &nbsp;&nbsp;<em>English</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>GDB</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Git</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Java</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Latex</em>
-            </p>
-            <p> 
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Object-Oriented Programming</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Parallel Programming</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              &nbsp;&nbsp;<em>Portuguese (native)</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Python</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Tensorflow</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Test-Driven Development</em>
-            </p>
-            <p>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-              &nbsp;&nbsp;<em>Vim</em>
-            </p>
-          </article>
-        </section>
-
-        <section class="thirteen columns">
-          <h1>Awards</h1>
-          <article>
-            <ul>
-              <li>2020 - Doctoral Exchange Program Scholarship from CAPES - PrInt (Brazil's Government).</li>
-              <li>2020 - Young Student Fellow Program, Design Automation Conference (Virtual).</li>
-              <li>2019 - A. Richard Newton Young Student Fellow, Design Automation Conference.</li>
-              <li>2017 - 3rd Place Award on Multi-Deck Standard Cell Legalization, International Conference on Computer-Aided Design CAD Contest.</li>
-              <li>2017 - A. Richard Newton Young Student Fellow, Design Automation Conference.</li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="thirteen columns">
-          <h1>Publications</h1>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>; Renan Netto; Tiago A. Fontana; Erfan Aghaeekiasaraee; Upma Gandhi; Aysa F. Tabrizi; José Luís Güntzel; Laleh Behjat; Cristina Meinhardt
-            <a href="https://doi.org/10.1016/j.vlsi.2024.102309" style="text-decoration: underline;" target="_blank">
-              &quot;Eh-DRVP: Combining placement and global routing data in a hyper-image-based DRV predictor&quot;
-            </a>
-            &nbsp; Elsevier Integration 2025
-          </article>
-
-          <article>
-            Tiago A. Fontana, Erfan Aghaeekiasaraee, Renan Netto, <strong>Sheiny F. Almeida</strong>, Upma Gandh, Laleh Behjat, Jose L. A. Guntzel.
-            <a href="https://ieeexplore.ieee.org/abstract/document/10218743" style="text-decoration: underline;" target="_blank">
-              &quot;ILPGRC: ILP-Based Global Routing Optimization With Cell Movements&quot;
-            </a>
-            &nbsp; IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD) 2023
-          </article>
-
-          <article>
-            Aghaeekiasaraee, Erfan and Tabrizi, Aysa Fakheri and Fontana, Tiago Augusto and Netto, Renan and <strong>Almeida, Sheiny Fabre</strong> and Gandhi, Upma and Guntzel, Jose Luis and Westwick, David and Behjat, Laleh.
-            <a href="https://dl.acm.org/doi/full/10.1145/3590962" style="text-decoration: underline;" target="_blank">
-              &quot;CRP2.0: A Fast and Robust Cooperation between Routing and Placement in Advanced Technology Nodes&quot;
-            </a>
-            &nbsp; ACM Transactions on Design Automation of Electronic Systems (TODAES) 2023
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>, José Luís Güntzel, Laleh Behjat, Cristina Meinhardt.
-            <a href="https://ieeexplore.ieee.org/document/9939602" style="text-decoration: underline;" target="_blank">
-              &quot;Routability-Driven Detailed Placement Using Reinforcement Learning&quot;
-            </a>
-            &nbsp; IFIP/IEEE 30th International Conference on Very Large Scale Integration (VLSI-SoC) 2022
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>; Aysa F. Tabrizi; Erfan Aghaeekiasaraee; Renan Netto; Tiago A. Fontana; Upma Gandhi; José Luís Güntzel; Laleh Behjat; Cristina Meinhardt
-            <a href="https://ieeexplore.ieee.org/document/9970846" style="text-decoration: underline;" target="_blank">
-              &quot;E-RVP: An Initial Design Rule Violation Predictor Using Placement Information&quot;
-            </a>
-            &nbsp; IEEE International Conference on Electronics, Circuits and Systems (ICECS) 2022
-          </article>
-
-          <article>
-            Aghaeekiasaraee, Erfan and Tabrizi, Aysa Fakheri and Fontana, Tiago Augusto and Netto, Renan and <strong>Almeida, Sheiny Fabre</strong> and Gandhi, Upma and Guntzel, Jose Luis and Westwick, David and Behjat, Laleh.
-            <a href="https://ieeexplore.ieee.org/document/9774530" style="text-decoration: underline;" target="_blank">
-              &quot;CR&P: an efficient co-operation between routing and placement&quot;
-            </a>
-            &nbsp; Design Automation & Test in Europe Conference & Exhibition (DATE) 2022
-          </article>
-
-          <article>
-            Renan O. Netto, <strong>Sheiny F. Almeida</strong>, Tiago A. Fontana, Vinicius Livramento, Laercio L. Pilla, Jose L. A. Guntzel.
-            <a href="https://ieeexplore.ieee.org/document/9428588" style="text-decoration: underline;" target="_blank">
-              &quot;Algorithm Selection Framework for Legalization Using Deep Convolutional Neural Networks and Transfer Learning&quot;
-            </a>
-            &nbsp; IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (Early Access) 2021
-          </article>
-
-          <article>
-            Tiago A. Fontana, Erfan Aghaeekiasaraee, <strong>Sheiny F. Almeida</strong>, Upma Gandh, Aysa F. Tabrizi, David Westwick, Laleh Behjat, Jose L. A. Guntzel.
-            <a href="https://ieeexplore.ieee.org/document/9516728" style="text-decoration: underline;" target="_blank">
-              &quot;ILP-Based Global Routing Optimization with Cell Movements&quot;
-            </a>
-            &nbsp; IEEE Computer Society Annual Symposium on VLSI 2021
-          </article>
-
-          <article>
-            Renan O. Netto, <strong>Sheiny F. Almeida</strong>, Tiago A. Fontana, Vinicius Livramento, Laercio L. Pilla, Jose L. A. Guntzel.
-            <a href="https://dl.acm.org/doi/abs/10.1145/3299902.3309754" style="text-decoration: underline;" target="_blank">
-              &quot;How Deep Learning Can Drive Physical Synthesis Towards More Predictable Legalization&quot;<strong> (Best paper candidate!)</strong>
-            </a>
-            &nbsp; In International Symposium on Physical Design, 2019.
-          </article>
-
-          <article>
-            Renan O. Netto, Tiago A. Fontana, <strong>Sheiny F. Almeida</strong>, Bernardo F. Mendonca, Vinicius Livramento, Thiago Barbato, Joao Souto, Chrystian Guth, Jose L. A. Guntzel, Laercio L. Pilla
-            <a href="https://github.com/eclufsc/ophidian" style="text-decoration: underline;" target="_blank">
-              &quot;Ophidian: an Open-Source Library for Physical Design Research and Teaching&quot;
-            </a>
-            &nbsp;
-            <a href="https://woset-workshop.github.io/WOSET2018.html" style="text-decoration: underline;" target="_blank">
-              &quot;In Workshop on Open-Source EDA Technology, 2018.&quot;
-            </a>
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>, Jose L. A. Guntzel, Laercio L. Pilla, Renan O. Netto, Tiago A. Fontana, Vinicius Livramento.
-            <a href="https://ieeexplore.ieee.org/document/8533264" style="text-decoration: underline;" target="_blank">
-              &quot;Enhancing Multi-Threaded Legalization Through k-d Tree Circuit Partitioning&quot;
-            </a>
-            &nbsp; In Symposium on Integrated Circuits and Systems Design, 2018.
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>, Jose L. A. Guntzel, Laercio L. Pilla, Jose L. A. Guntzel, Renan O. Netto, Tiago A. Fontana, Vinicius Livramento.
-            &quot;Exploracao de paralelismo na etapa de legalizacao de circuitos digitais atraves do uso de estruturas de dados geometricas&quot;
-            <a href="http://www.inf.ufrgs.br/erad2018/index.html" style="text-decoration: underline;" target="_blank">
-              In Forum de Pos Graduacao da ERAD, 2018.
-            </a>
-          </article>
-
-          <article>
-            Tiago A. Fontana, Renan O. Netto, <strong>Sheiny F. Almeida</strong>, Vinicius Livramento, Chrystian Guth, Laercio L. Pilla, Jose L. A. Guntzel.
-            <a href="https://dl.acm.org/doi/10.1145/3036669.3038248" style="text-decoration: underline;" target="_blank">
-              &quot;How Game Engines Can Inspire EDA Tools Development: A use case for an open-source physical design library&quot;
-            </a>
-            &nbsp; In International Symposium on Physical Design, 2017.
-          </article>
-
-          <article>
-            Tiago A. Fontana, <strong>Sheiny F. Almeida</strong>, Renan O. Netto, Vinicius Livramento, Chrystian Guth, Laercio L. Pilla, Jose L. A. Guntzel.
-            <a href="https://dl.acm.org/doi/abs/10.1145/3109984.3110005" style="text-decoration: underline;" target="_blank">
-              &quot;Exploiting Cache Locality to Speedup Register Clustering&quot;
-            </a>
-            &nbsp; In Symposium on Integrated Circuits and Systems Design, 2017.
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>, Bernardo F. Mendonca, Laercio L. Pilla, Jose L. A. Guntzel.
-            &quot;Comparando orientacao a dados e orientacao a objetos em analise de timing estatica&quot;
-            <a href="http://www.projetos.unijui.edu.br/eradrs2017/" style="text-decoration: underline;" target="_blank">
-            In Forum de Iniciacao Cientifica da ERAD, 2017.
-            </a>
-          </article>
-
-          <article>
-            <strong>Sheiny F. Almeida</strong>, Laercio L. Pilla, Jose L. A. Guntzel.
-            &quot;Paralelismo em Analise de Timing Estatica&quot;
-            <a href="http://www.unisinos.br/eventos/erad-rs-2016-exerad" style="text-decoration: underline;" target="_blank">
-              In Forum de Iniciacao Cientifica da ERAD RS, 2016.
-            </a>
-          </article>
-        </section>
-
-        <section class="thirteen columns">
-          <h1>Other Activities</h1>
-          <article>
-          Member of organizing committee @ 2nd Brazilian Programming Contest for Design Automation of Integrated Circuits (CADAthlon)
-            <a href="https://csbc.sbc.org.br/2022/cadathlon-brasil-en/" style="text-decoration: underline;" target="_blank">
-              CADathlon Brasil 2022
-            </a>
-          </article>
+        <section>
+          <h2>REFERENCES</h2>
+          <p>Available upon request</p>
         </section>
       </div>
-    </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right">
+
+        <section>
+          <h2>MAIN PUBLICATIONS</h2>
+          <ul>
+            <li><a href="https://doi.org/10.1016/j.vlsi.2024.102309">A Hyper-Image-Based Initial DRV Predictor Combining Placement and Global Routing Data</a> <em>Integration</em>, 2025.</li>
+            <li><a href="https://ieeexplore.ieee.org/document/9970846">E-RVP: An Initial Design Rule Violation Predictor Using Placement Information</a> <em>ICECS</em>, 2022.</li>
+            <li><a href="https://ieeexplore.ieee.org/document/9428588">Algorithm Selection Framework for Legalization Using Deep Convolutional Neural Networks and Transfer Learning</a> <em>Transactions</em>, 2021.</li>
+            <li><a href="https://woset-workshop.github.io/WOSET2018.html">Ophidian: an Open-Source Library for Physical Design Research and Teaching</a> <em>WOSET</em>, 2018.</li>
+            <li><a href="https://ieeexplore.ieee.org/document/8533264">Enhancing Multi-Threaded Legalization Through k-d Tree Circuit Partitioning</a> <em>SBCCI</em>, 2018.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>AWARDS & HONORS</h2>
+          <ul>
+            <li>Doctoral Exchange Scholarship at UCalgary Canada - CAPES PrInt (Brazil's Government), 2020.</li>
+            <li>A. Richard Newton Young Student Fellow, DAC, 2019 and 2020 (Virtual).</li>
+            <li>3rd Place Award on Multi-Deck Standard Cell Legalization, ICCAD, 2017</li>
+            <li>A. Richard Newton Young Student Fellow, DAC, 2017</li>
+            <li>Member of Brazilian Programming Contest for Design Automation of Integrated Circuits</li>
+          </ul>
+        </section>
+
+      </div>
+    </main>
+
   </body>
 </html>
+
